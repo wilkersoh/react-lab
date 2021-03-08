@@ -45,6 +45,10 @@ export default function MeterialPagination() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // const controller = new AbortController(); This is for fetch api
+  const cancelToken = axios.CancelToken;
+  const source = cancelToken.source();
+
   let [page, setPage] = useState(1);
 
   const count = Math.ceil(posts.length / PER_PAGE);
@@ -53,12 +57,22 @@ export default function MeterialPagination() {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const res = await axios.get(`${API_URL}`);
+      const res = await axios.get(`${API_URL}`, {
+        cancelToken: source.token,
+      });
       setPosts(res.data);
       setLoading(false);
     };
 
-    fetchData();
+    setTimeout(() => {
+      fetchData();
+    }, 2000);
+
+    //cleanup function
+    return () => {
+      // controller.abort();  this is for Fetch api
+      source.cancel("axios request cancelled");
+    };
   }, []);
 
   const handleChange = (e, p) => {
