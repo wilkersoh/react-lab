@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Box } from "@material-ui/core";
+
 import axios from "axios";
 
+import { Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const API_URL = "https://jsonplaceholder.typicode.com/posts";
@@ -84,20 +85,19 @@ const Pagination = ({ totalPosts, postsPerPage, paginate, currentPage }) => {
     <nav>
       <ul className={classes.ui}>
         <li>
-          <a href='#'>&laquo;</a>
+          <Box>&laquo;</Box>
         </li>
         {pageNumbers.map((number) => (
           <li key={number}>
-            <a
+            <Box
               onClick={() => paginate(number)}
-              href='!#'
               className={currentPage === number ? "active" : null}>
               {number}
-            </a>
+            </Box>
           </li>
         ))}
         <li>
-          <a href='#'>&raquo;</a>
+          <Box>&raquo;</Box>
         </li>
       </ul>
     </nav>
