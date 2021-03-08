@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
-import PaginationLab from "./components/PaginationLab";
+import React from "react";
+import MeterialPagination from "./components/MeterialPagination";
+import CustomPagination from "./components/CustomPagination";
 
 function App() {
   return (
     <div>
-      <PaginationLab />
+      <MeterialPagination />
+      <CustomPagination />
     </div>
   );
 }

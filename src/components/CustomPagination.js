@@ -30,7 +30,7 @@ const usePaginateStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PaginationLab() {
+export default function CustomPagination() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
