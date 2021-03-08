@@ -5,16 +5,26 @@ import axios from "axios";
 
 const API_URL = "https://jsonplaceholder.typicode.com/posts";
 
+const PER_PAGE = 5;
+
 const usePagination = (data, itemsPerPage) => {
   const [currentPage, setCurrentPage] = useState(1);
   const maxPage = Math.ceil(data.length / itemsPerPage);
 
   function currentData() {
+    /**
+     * current page = 2;
+     * itemsPerPage = 10;
+     * (2 - 1) * 10 = 10; then slice from 10 to end
+     */
     const begin = (currentPage - 1) * itemsPerPage;
     const end = begin + itemsPerPage;
     return data.slice(begin, end);
   }
 
+  /**
+   * next and prev for standby, not in use for this case
+   */
   function next() {
     setCurrentPage((currentPage) => Math.min(currentPage + 1, maxPage));
   }
@@ -36,7 +46,6 @@ export default function MeterialPagination() {
   const [loading, setLoading] = useState(false);
 
   let [page, setPage] = useState(1);
-  const PER_PAGE = 5;
 
   const count = Math.ceil(posts.length / PER_PAGE);
   const _DATA = usePagination(posts, PER_PAGE);
