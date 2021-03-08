@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Box } from "@material-ui/core";
-import { Pagination } from "@material-ui/lab";
 import axios from "axios";
+
+import { Box, Grid, TextField } from "@material-ui/core";
+import { Pagination } from "@material-ui/lab";
+import AccountCircle from "@material-ui/icons/AccountCircle";
 
 const API_URL = "https://jsonplaceholder.typicode.com/posts";
 
@@ -44,10 +46,8 @@ const usePagination = (data, itemsPerPage) => {
 export default function MeterialPagination() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  // const controller = new AbortController(); This is for fetch api
-  const cancelToken = axios.CancelToken;
-  const source = cancelToken.source();
+  const [input, setInput] = useState("");
+  const [searchData, setSearchData] = useState([]);
 
   let [page, setPage] = useState(1);
 
@@ -55,6 +55,10 @@ export default function MeterialPagination() {
   const _DATA = usePagination(posts, PER_PAGE);
 
   useEffect(() => {
+    // const controller = new AbortController(); This is for fetch api
+    const cancelToken = axios.CancelToken;
+    const source = cancelToken.source();
+
     const fetchData = async () => {
       setLoading(true);
       const res = await axios.get(`${API_URL}`, {
@@ -64,9 +68,14 @@ export default function MeterialPagination() {
       setLoading(false);
     };
 
-    setTimeout(() => {
+    try {
       fetchData();
-    }, 2000);
+    } catch (error) {
+      if (axios.isCancel(error)) {
+        return "axios request cancelled";
+      }
+      return error;
+    }
 
     //cleanup function
     return () => {
@@ -75,19 +84,42 @@ export default function MeterialPagination() {
     };
   }, []);
 
+  useEffect(() => {
+    const data = _DATA.currentData();
+    const result = data.filter((d) => d.title.match(input));
+
+    setSearchData(result);
+  }, [input]);
+
   const handleChange = (e, p) => {
     setPage(p);
     _DATA.jump(p);
+  };
+
+  const onSearch = (e) => {
+    e.preventDefault();
+    setInput(e.target.value);
   };
 
   if (loading) return <h1>loading...</h1>;
 
   return (
     <Box>
+      <Grid container spacing={1} alignItems='flex-end'>
+        <Grid item>
+          <AccountCircle />
+        </Grid>
+        <Grid item>
+          <TextField value={input} onChange={onSearch} label='With a grid' />
+        </Grid>
+      </Grid>
+
       <ul>
-        {_DATA.currentData().map((item) => (
-          <li key={item.id}>{item.title}</li>
-        ))}
+        {!input.length
+          ? _DATA
+              .currentData()
+              .map((item) => <li key={item.id}>{item.title}</li>)
+          : searchData.map((item) => <li key={item.id}>{item.title}</li>)}
       </ul>
 
       <Pagination
