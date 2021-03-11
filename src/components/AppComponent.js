@@ -4,10 +4,11 @@ import Navbar from "./Navbar";
 
 export default function AppComponent({ children }) {
   return (
-    <Box maxWidth='1120px' width='100%' m='0 auto' height='100vh'>
-      <Box>
-        <Navbar />
-        {children}
+    <Box display='flex' flexDirection='column' minHeight='100vh'>
+      <Navbar />
+      {children}
+      <Box component='footer' textAlign='center' py={4} mt={"auto"}>
+        React Component created by yz
       </Box>
     </Box>
   );

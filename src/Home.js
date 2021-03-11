@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Container from "./components/Container";
 import { Box, List } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { PATHS } from "./lib/routes";
@@ -9,7 +10,7 @@ export default function Home() {
   const classes = useListStyle();
 
   return (
-    <Box>
+    <Container>
       <List component='nav' aria-label='react list components'>
         <Box component='ul' className={classes.ul}>
           {Object.entries(PATHS).map(([name, path]) => (
@@ -21,13 +22,14 @@ export default function Home() {
           ))}
         </Box>
       </List>
-    </Box>
+    </Container>
   );
 }
 
 const useListStyle = makeStyles(() => ({
   ul: {
     listStyle: "none",
+    padding: 0,
   },
   li: {
     textAlign: "center",

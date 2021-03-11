@@ -110,7 +110,7 @@ export default function MeterialPagination() {
           <AccountCircle />
         </Grid>
         <Grid item>
-          <TextField value={input} onChange={onSearch} label='With a grid' />
+          <TextField value={input} onChange={onSearch} label='Searching...' />
         </Grid>
       </Grid>
 
