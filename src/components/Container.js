@@ -9,7 +9,6 @@ export default function Container({ children, ...props }) {
       px={{ xs: 2, md: 4 }}
       width='100%'
       m='0 auto'
-      style={{ border: "2px solid black" }}
       {...props}>
       {children}
     </Box>
