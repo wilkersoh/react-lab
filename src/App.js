@@ -4,6 +4,7 @@ import MeterialPagination from "./components/MeterialPagination";
 import CustomPagination from "./components/CustomPagination";
 import AppComponent from "./components/AppComponent";
 import Home from "./Home";
+import CustomSlider from "./CustomSlider";
 import Slider from "./Slider";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route path='/meterial-pagination' component={MeterialPagination} />
           <Route path='/custom-pagination' component={CustomPagination} />
+          <Route path='/custom-slider' component={CustomSlider} />
           <Route path='/slider' component={Slider} />
         </Switch>
       </AppComponent>
