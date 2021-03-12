@@ -8,13 +8,20 @@ import { Box } from "@material-ui/core";
 import "./styles/SliderImage.css";
 import Container from "./components/Container";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   slider: {
     position: "relative",
     height: "100%",
     width: "100%",
     margin: "0 auto",
     overflow: "hidden",
+    border: "2px dashed black",
+    // [theme.breakpoints.down("sm")]: {
+    //   width: "200px",
+    // },
+    // [theme.breakpoints.up("sm")]: {
+    //   width: "100%",
+    // },
   },
   sliderContent: {
     transform: (props) => `translateX(-${props.transform}px)`,
@@ -23,7 +30,7 @@ const useStyles = makeStyles({
     height: "100%",
     display: "flex",
   },
-});
+}));
 
 export default function Slider() {
   const containerRef = useRef();
@@ -34,12 +41,14 @@ export default function Slider() {
 
   // const getWidth = () => window.innerWidth;
   let resizeWindow = () => {
-    setActiveIndex({
-      ...activeIndex,
-      width: containerRef.current.offsetWidth,
+    setActiveIndex((prev) => {
+      return {
+        transform: prev.transform, // use prev index when dom resize
+        width: containerRef.current.offsetWidth,
+      };
     });
   };
-
+  console.log("activeIndex :>> ", activeIndex);
   useEffect(() => {
     // get slide container width
     const width = containerRef.current.offsetWidth;
@@ -47,8 +56,6 @@ export default function Slider() {
     setActiveIndex({ ...activeIndex, width });
 
     resizeWindow();
-
-    console.log("activeIndex :>> ", activeIndex);
 
     window.addEventListener("resize", resizeWindow);
     return () => window.removeEventListener("resize", resizeWindow);
