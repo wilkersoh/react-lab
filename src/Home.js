@@ -13,10 +13,10 @@ export default function Home() {
     <Container>
       <List component='nav' aria-label='react list components'>
         <Box component='ul' className={classes.ul}>
-          {Object.entries(PATHS).map(([name, path]) => (
+          {PATHS.map(({ name, path }) => (
             <Box component='li' key={name} className={classes.li}>
               <Link key={name} to={path}>
-                {name.split("_").join(" ")}
+                {name}
               </Link>
             </Box>
           ))}

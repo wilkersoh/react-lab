@@ -1,11 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import MeterialPagination from "./components/MeterialPagination";
-import CustomPagination from "./components/CustomPagination";
 import AppComponent from "./components/AppComponent";
 import Home from "./Home";
-import CustomSlider from "./CustomSlider";
-import Slider from "./Slider";
+import { PATHS } from "./lib/routes";
 
 function App() {
   return (
@@ -13,10 +10,9 @@ function App() {
       <AppComponent>
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route path='/meterial-pagination' component={MeterialPagination} />
-          <Route path='/custom-pagination' component={CustomPagination} />
-          <Route path='/custom-slider' component={CustomSlider} />
-          <Route path='/slider' component={Slider} />
+          {PATHS.map(({ path, component }) => (
+            <Route key={path} path={path} component={component} />
+          ))}
         </Switch>
       </AppComponent>
     </Router>
