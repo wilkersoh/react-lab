@@ -4,6 +4,8 @@ import AppComponent from "./components/AppComponent";
 import Home from "./Home";
 import { PATHS } from "./lib/routes";
 
+import "./styles/global.css";
+
 function App() {
   return (
     <Router>
