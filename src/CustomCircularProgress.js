@@ -9,7 +9,7 @@ export default function CustomCircularProgress(props) {
   const {
     size = 200,
     progress = 70,
-    strokeWidth = 15,
+    strokeWidth = 8,
     circleOneStroke = "#7ea9e1",
     circleTwoStroke = "#c73713",
   } = props;
