@@ -15,20 +15,29 @@ const useStyle = makeStyles(() => ({
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     "&[zoomed]": {
-      backgroundSize: "600px 400px", // zoomed 1 level
+      backgroundSize: (props) => {
+        let zoomLevel = 2;
+        let w = 300,
+          h = 200;
+        if (props.zoomedDeep) zoomLevel = 3;
+        w = w * zoomLevel + "px";
+        h = h * zoomLevel + "px";
+        return `${w} ${h}`;
+      }, // zoomed 1 level
       backgroundPosition: (props) =>
         `calc(${props.x} * 100%) calc(${props.y} * 100%)`,
     },
     "&:hover": {
-      cursor: "zoom-in",
+      cursor: (props) => (!props.zoomedDeep ? "zoom-in" : "zoom-out"),
     },
   },
 }));
 
 export default function MouseMoveZoom() {
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
+  const [isZoomedDeep, setIsZoomedDeep] = useState(false);
   const imageRef = useRef();
-  const classes = useStyle(zoomPosition);
+  const classes = useStyle({ ...zoomPosition, zoomedDeep: isZoomedDeep });
 
   useEffect(() => {
     //
@@ -90,11 +99,11 @@ export default function MouseMoveZoom() {
     moveHandle(e);
   };
 
+  const zoomedDeep = () => setIsZoomedDeep(!isZoomedDeep);
+
   return (
     <Container>
-      <Box className='blue'>
-        <Box ref={imageRef} className={classes.image}></Box>
-      </Box>
+      <Box onClick={zoomedDeep} ref={imageRef} className={classes.image}></Box>
     </Container>
   );
 }
