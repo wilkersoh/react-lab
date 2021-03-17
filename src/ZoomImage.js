@@ -56,7 +56,7 @@ const PreviewImage = ({ onClick, preview }) => {
   const classes = useStyles();
 
   const onLoadImg = async () => {
-    const delay = await new Promise((resolve) => setTimeout(resolve, 750));
+    const delay = await new Promise((resolve) => setTimeout(resolve, 150));
 
     setOnLoad(true);
   };
