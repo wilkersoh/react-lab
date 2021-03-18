@@ -20,9 +20,13 @@ export default function MediumImageZoom() {
       </Zoom>
 
       <Typography variant={"h2"} gutterBottom>
-        Background and zoomMargin
+        Background, zoomMargin and openText
       </Typography>
-      <Zoom overlayBgColorEnd={"rgb(0,0,0)"} zoomMargin={20}>
+      <Zoom
+        overlayBgColorEnd={"#ec3a3a"}
+        zoomMargin={20}
+        closeText='Test typing something with long text'
+        openText='Test typing something with long text'>
         <Box component={"img"} src={SliderImages[0]} width={300} />
       </Zoom>
 

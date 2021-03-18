@@ -5,6 +5,7 @@ Lab
 1. Custom pagination
 2. Meterial pagination
 
+
 * WebRTC
 
 NAT (Network Address Translation)
@@ -89,7 +90,41 @@ WebRTC work default 3 type of NAT (大多數的 communication 這3個就夠了)
 
 
 **Symmetric NAT**
-1.
+1. 好像和 port 一樣 要 Dest IP & Dest Port 都一樣才能通過
+
+STUN
+* Session Traversal Utilities for NAT
+* Tell me my public ip address/port through NAT
+* Work for Full-cone, Port/Address restricted NAT
+* Doesn't work for symmetric NAT
+* STUN Server usually run on port 3478, 5349 for TLS
+* Cheap to maintain
+
+STUN Request
+1. 和上面NAT 差不多一樣，一樣 我們有 MAC的自己IP 和 Router private IP and router public IP
+2. 現在 多出一個 叫做 STUN Server的東西 9.9.9.9:3478
+3. 自己MAC IP 要和STUN Server 溝通， 所以會通過 router 再去隱藏MAC的private IP，用router的public IP (和上面 NAT一樣)
+4. router create 一個 NAT Table 如下圖
+5. 然後 去和 STUN Server 溝通
+6. STUN Server收到後 會紀錄現在這個STUN Server 有 External IP / Ext.Port 的資料，過後它會send 一個 叫做 packet 的東西 回去 router (其實就和 NAT 一樣 NAT 會send respond 200 ok和他的Dest IP and Dest Port， 這個則是一個packet的東西 和Dest IP and Dest Port)
+7. router 再看 STUN server 返回的 External IP 是不是在 NAT裡， 有的話就通過 把這份packet 給回去Mac IP
+8. Mac 收到後 他就不會再使用 router的 public IP 去和 別人 做溝通了， 還記得 Mac 自己是沒有 public ip的 因為 我們都在 behind the NAT (用wifi and lan), 都是使用 router public ip 去做溝通
+9. 現在 通過 STUN Server 我們 把 router的 public ip 直接 當作 mac 的public ip了 去和 對方溝通了
+10. 只要對方 沒有設置 **Address restricted NAT** or **Port restricted NAT** 我們就能 直接 用 mac 的 這個 public ip 去 和 對方 交換信息
+11. Note： STUN Server 的用處 就是 讓你的電腦 能用 router 的 public IP（ 它們會是自動去hit STUN Server 去拿 router 的public ip 來用 ）
+
++-------------+---------------+-------------+----------+---------+-----------+
+| Internal IP | Internal Port | External IP | Ext.Port | Dest IP | Dest Port |
++-------------+---------------+-------------+----------+---------+-----------+
+| 10.0.0.2    | 8992          | 5.5.5.5     | 3333     | 9.9.9.9 | 3478      |
++-------------+---------------+-------------+----------+---------+-----------+
+
+如果有一方是 **Address restricted NAT** or **Port restricted NAT** 那就不能做溝通了，因為我們的資料 沒有在對方的 NAT Table裡面
+1. 所以 他們會子溝通前 互相建立 確認 能不能allow它
+
+
+如果對方 是**Symmetric NAT**
+
 
 STUN, TURN
 ICE

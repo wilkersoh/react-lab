@@ -3,9 +3,10 @@ import MeterialPagination from "../components/MeterialPagination";
 import CustomCircularProgress from "../CustomCircularProgress";
 import CustomSlider from "../CustomSlider";
 import ImageLoadedTrick from "../ImageLoadedTrick";
-import ImageTransitionZoom from "../ImageTransitionZoom";
+// import ImageTransitionZoom from "../ImageTransitionZoom";
 import MediumImageZoom from "../MediumImageZoom";
 import MouseMoveZoom from "../MouseMoveZoom";
+import NestedRoute from "../NestedRoute";
 import Slider from "../Slider";
 import TableView from "../TableView";
 import TransitionNumberSelected from "../TransitionNumberSelected";
@@ -46,11 +47,11 @@ export const PATHS = [
     path: "/mouse-move-zoom-image",
     component: MouseMoveZoom,
   },
-  {
-    name: "image transition zoom (incompleted)",
-    path: "/image-transition-zoom",
-    component: ImageTransitionZoom,
-  },
+  // {
+  //   name: "image transition zoom (incompleted)",
+  //   path: "/image-transition-zoom",
+  //   component: ImageTransitionZoom,
+  // },
   {
     name: "medium image zoom",
     path: "/medium-image-zoom",
@@ -66,6 +67,9 @@ export const PATHS = [
     path: "/transition-effect-number",
     component: TransitionNumberSelected,
   },
+  {
+    name: "react nested routing",
+    path: "/nested-routing",
+    component: NestedRoute,
+  },
 ];
-
-export const SystemPaths = [];
