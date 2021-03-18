@@ -6,7 +6,7 @@ import CustomCircularProgress from "../CustomCircularProgress";
 // import ImageTransitionZoom from "../ImageTransitionZoom";
 import MediumImageZoom from "../MediumImageZoom";
 // import MouseMoveZoom from "../MouseMoveZoom";
-import NestedRoute from "../NestedRoute";
+// import NestedRoute from "../NestedRoute";
 import Slider from "../Slider";
 import TableView from "../TableView";
 import TransitionNumberSelected from "../TransitionNumberSelected";
@@ -67,9 +67,9 @@ export const PATHS = [
     path: "/transition-effect-number",
     component: TransitionNumberSelected,
   },
-  {
-    name: "react nested routing",
-    path: "/nested-routing",
-    component: NestedRoute,
-  },
+  // {
+  //   name: "react nested routing",
+  //   path: "/nested-routing",
+  //   component: NestedRoute,
+  // },
 ];
