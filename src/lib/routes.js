@@ -1,22 +1,22 @@
 import CustomPagination from "../components/CustomPagination";
-import MeterialPagination from "../components/MeterialPagination";
+// import MeterialPagination from "../components/MeterialPagination";
 import CustomCircularProgress from "../CustomCircularProgress";
-import CustomSlider from "../CustomSlider";
-import ImageLoadedTrick from "../ImageLoadedTrick";
+// import CustomSlider from "../CustomSlider";
+// import ImageLoadedTrick from "../ImageLoadedTrick";
 // import ImageTransitionZoom from "../ImageTransitionZoom";
 import MediumImageZoom from "../MediumImageZoom";
-import MouseMoveZoom from "../MouseMoveZoom";
+// import MouseMoveZoom from "../MouseMoveZoom";
 import NestedRoute from "../NestedRoute";
 import Slider from "../Slider";
 import TableView from "../TableView";
 import TransitionNumberSelected from "../TransitionNumberSelected";
 
 export const PATHS = [
-  {
-    name: "meterial pagination",
-    path: "/meterial-pagination",
-    component: MeterialPagination,
-  },
+  // {
+  //   name: "meterial pagination",
+  //   path: "/meterial-pagination",
+  //   component: MeterialPagination,
+  // },
   {
     name: "custom pagination",
     path: "/custom-pagination",
@@ -27,26 +27,26 @@ export const PATHS = [
     path: "/slider",
     component: Slider,
   },
-  {
-    name: "custom slider",
-    path: "/custom-slider",
-    component: CustomSlider,
-  },
+  // {
+  //   name: "custom slider",
+  //   path: "/custom-slider",
+  //   component: CustomSlider,
+  // },
   {
     name: "custom circular progress",
     path: "/custom-circular-progress",
     component: CustomCircularProgress,
   },
-  {
-    name: "image loaded trick",
-    path: "/image-loaded-trick",
-    component: ImageLoadedTrick,
-  },
-  {
-    name: "mouse move zoom image",
-    path: "/mouse-move-zoom-image",
-    component: MouseMoveZoom,
-  },
+  // {
+  //   name: "image loaded trick",
+  //   path: "/image-loaded-trick",
+  //   component: ImageLoadedTrick,
+  // },
+  // {
+  //   name: "mouse move zoom image",
+  //   path: "/mouse-move-zoom-image",
+  //   component: MouseMoveZoom,
+  // },
   // {
   //   name: "image transition zoom (incompleted)",
   //   path: "/image-transition-zoom",
