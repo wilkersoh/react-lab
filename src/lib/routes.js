@@ -8,6 +8,7 @@ import MediumImageZoom from "../MediumImageZoom";
 import MouseMoveZoom from "../MouseMoveZoom";
 import Slider from "../Slider";
 import TableView from "../TableView";
+import TransitionNumberSelected from "../TransitionNumberSelected";
 
 export const PATHS = [
   {
@@ -56,9 +57,14 @@ export const PATHS = [
     component: MediumImageZoom,
   },
   {
-    name: "table structure (incompleted)",
+    name: "table structure",
     path: "/table-view",
     component: TableView,
+  },
+  {
+    name: "transition effect of number",
+    path: "/transition-effect-number",
+    component: TransitionNumberSelected,
   },
 ];
 
