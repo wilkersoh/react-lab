@@ -6,7 +6,8 @@ import ImageLoadedTrick from "../ImageLoadedTrick";
 import ImageTransitionZoom from "../ImageTransitionZoom";
 import MediumImageZoom from "../MediumImageZoom";
 import MouseMoveZoom from "../MouseMoveZoom";
-import NestedRoute from "../NestedRoute";
+import NestedRouteInSamePage from "../NestedRouteInSamePage";
+import NestedRouteOtherPage from "../NestedRouteOtherPage";
 import Slider from "../Slider";
 import TableView from "../TableView";
 import TransitionNumberSelected from "../TransitionNumberSelected";
@@ -68,8 +69,13 @@ export const PATHS = [
     component: TransitionNumberSelected,
   },
   {
-    name: "react nested routing",
-    path: "/nested-routing",
-    component: NestedRoute,
+    name: "nested route (same page)",
+    path: "/nested-routing-same-page",
+    component: NestedRouteInSamePage,
+  },
+  {
+    name: "nested route (other page)",
+    path: "/nested-routed-page",
+    component: NestedRouteOtherPage,
   },
 ];
