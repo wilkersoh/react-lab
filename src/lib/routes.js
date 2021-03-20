@@ -8,6 +8,7 @@ import MediumImageZoom from "../MediumImageZoom";
 import MouseMoveZoom from "../MouseMoveZoom";
 import NestedRouteInSamePage from "../NestedRouteInSamePage";
 import NestedRouteOtherPage from "../NestedRouteOtherPage";
+import ProtectedRoute from "../ProtectedRoute";
 import Slider from "../Slider";
 import TableView from "../TableView";
 import TransitionNumberSelected from "../TransitionNumberSelected";
@@ -77,5 +78,10 @@ export const PATHS = [
     name: "nested route (other page)",
     path: "/nested-routed-page",
     component: NestedRouteOtherPage,
+  },
+  {
+    name: "protected route",
+    path: "/protected-route",
+    component: ProtectedRoute,
   },
 ];
