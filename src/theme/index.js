@@ -17,6 +17,14 @@ const theme = createMuiTheme({
       default: "#fff",
     },
   },
+  typography: {
+    // overwrite meterial ui from google fonts
+    fontFamily: "Quicksand",
+    fontWeightLight: 400,
+    fontWeightRegular: 500,
+    fontWeightMedium: 600,
+    fontWeightBold: 700,
+  },
 });
 
 export default theme;
