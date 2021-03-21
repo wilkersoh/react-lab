@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth; /* scroll to top transition  */
+}
+
 ul {
   list-style-position: inside;
 }
