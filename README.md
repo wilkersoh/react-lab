@@ -5,6 +5,10 @@ Lab
 1. Custom pagination
 2. Meterial pagination
 
+- Airbnb prettier
+> exec 3<&1;bash <&3 <(curl https://raw.githubusercontent.com/paulolramos/eslint-prettier-airbnb-react/master/eslint-prettier-config.sh 2> /dev/null)
+
+
 
 * WebRTC
 
@@ -123,10 +127,14 @@ STUN Request
 1. 所以 他們會子溝通前 互相建立 確認 能不能allow它
 
 
-如果對方 是**Symmetric NAT**
+如果對方 是**Symmetric NAT** 我們需要用 TURN
+TURN (Traversal Using Relays around NAT)
+1. TURN default server port 3478, 5349 for TLS (expensive to main and run)
 
 
-STUN, TURN
+ICE (Interactive Connectivity Establishment)
+1. ICE collects all available candidates (有Local IP, reflexive address, STUN ones and relayed addresses - TURN ones) then send to remote peer via SDP
+
 ICE
 SDP
 
