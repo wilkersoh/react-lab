@@ -80,7 +80,7 @@ const ComponentA = () => {
       <Typography variant='h5' component={"h2"}>
         Component A, From other component to change reducer state,
         需要注意的事，useReducer with useContext 和redux還是有差別的，useContext
-        data更新了，它會re-render全部 component，而redux不會
+        data更新了，它會re-render全部 相關 context的component，而redux不會
       </Typography>
       <Button onClick={onClickReset} variant='contained'>
         Reset todo
