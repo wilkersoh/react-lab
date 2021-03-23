@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import Container from "./components/Container";
 import { Box, List } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { PATHS } from "./lib/routes";
+import { searchContext } from "./components/AppComponent";
 
 export default function Home() {
   const classes = useListStyle();
+  const { components } = useContext(searchContext);
 
   return (
     <Container>
       <List component='nav' aria-label='react list components'>
         <Box component='ul' className={classes.ul}>
-          {PATHS.map(({ name, path }) => (
+          {(components.length ? components : PATHS).map(({ name, path }) => (
             <Box component='li' key={name} className={classes.li}>
               <Link key={name} to={path}>
                 {name}
