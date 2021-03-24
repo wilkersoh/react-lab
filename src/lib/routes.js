@@ -4,6 +4,7 @@ import CustomCircularProgress from "../CustomCircularProgress";
 import CustomSlider from "../CustomSlider";
 import ImageLoadedTrick from "../ImageLoadedTrick";
 import ImageTransitionZoom from "../ImageTransitionZoom";
+import ListenOnScreen from "../ListenOnScreen";
 import MediumImageZoom from "../MediumImageZoom";
 import MouseMoveZoom from "../MouseMoveZoom";
 import NestedRouteInSamePage from "../NestedRouteInSamePage";
@@ -95,5 +96,10 @@ export const PATHS = [
     name: "useReducer more handy than useState",
     path: "/usereducer-benefit",
     component: ReducerBenefit,
+  },
+  {
+    name: "hook listen view area",
+    path: "/use-on-screen",
+    component: ListenOnScreen,
   },
 ];
