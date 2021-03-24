@@ -1,3 +1,4 @@
+import BinarySearch from "../BinarySearch";
 import CustomPagination from "../components/CustomPagination";
 import MeterialPagination from "../components/MeterialPagination";
 import CustomCircularProgress from "../CustomCircularProgress";
@@ -101,5 +102,10 @@ export const PATHS = [
     name: "hook listen view area",
     path: "/use-on-screen",
     component: ListenOnScreen,
+  },
+  {
+    name: "binary search",
+    path: "/binary-search",
+    component: BinarySearch,
   },
 ];

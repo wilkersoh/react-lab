@@ -10,7 +10,7 @@ Lab
 
 
 
-* WebRTC
+* WebRTC (https://www.youtube.com/watch?v=FExZvpVvYxA)[link]
 
 NAT (Network Address Translation)
 - 如果有 expot IP public address 那就沒問題，那別人就能直接通過你的 public address和你connection

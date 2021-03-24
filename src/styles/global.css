@@ -10,7 +10,8 @@ html {
   scroll-behavior: smooth; /* scroll to top transition  */
 }
 
-ul {
+ul,
+ol {
   list-style-position: inside;
 }
 
