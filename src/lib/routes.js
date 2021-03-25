@@ -11,6 +11,7 @@ import MediumImageZoom from "../MediumImageZoom";
 import MouseMoveZoom from "../MouseMoveZoom";
 import NestedRouteInSamePage from "../NestedRouteInSamePage";
 import NestedRouteOtherPage from "../NestedRouteOtherPage";
+import PreviewImage from "../PreviewImage";
 import ProtectedRoute from "../ProtectedRoute";
 import ReducerBenefit from "../ReducerBenefit";
 import ReducerContext from "../ReducerContext";
@@ -113,5 +114,10 @@ export const PATHS = [
     name: "chart rechart",
     path: "/rechart-package",
     component: Chart,
+  },
+  {
+    name: "preview image",
+    path: "/preview-image",
+    component: PreviewImage,
   },
 ];
