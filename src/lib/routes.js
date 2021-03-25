@@ -1,4 +1,5 @@
 import BinarySearch from "../BinarySearch";
+import Chart from "../Chart";
 import CustomPagination from "../components/CustomPagination";
 import MeterialPagination from "../components/MeterialPagination";
 import CustomCircularProgress from "../CustomCircularProgress";
@@ -107,5 +108,10 @@ export const PATHS = [
     name: "binary search",
     path: "/binary-search",
     component: BinarySearch,
+  },
+  {
+    name: "chart rechart",
+    path: "/rechart-package",
+    component: Chart,
   },
 ];
