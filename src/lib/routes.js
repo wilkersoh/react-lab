@@ -1,18 +1,21 @@
-import BinarySearch from "../BinarySearch";
+import BinarySort from "../BinarySort";
 import Chart from "../Chart";
 import CustomPagination from "../components/CustomPagination";
 import MeterialPagination from "../components/MeterialPagination";
 import CustomCircularProgress from "../CustomCircularProgress";
 import CustomSlider from "../CustomSlider";
+import FormReact from "../FormReact";
 import ImageLoadedTrick from "../ImageLoadedTrick";
 import ImageTransitionZoom from "../ImageTransitionZoom";
 import ListenOnScreen from "../ListenOnScreen";
 import MediumImageZoom from "../MediumImageZoom";
+import MemoAndTrick from "../MemoAndTrick";
 import MouseMoveZoom from "../MouseMoveZoom";
 import NestedRouteInSamePage from "../NestedRouteInSamePage";
 import NestedRouteOtherPage from "../NestedRouteOtherPage";
 import PreviewImage from "../PreviewImage";
 import ProtectedRoute from "../ProtectedRoute";
+import QuickSort from "../QuickSort";
 import ReducerBenefit from "../ReducerBenefit";
 import ReducerContext from "../ReducerContext";
 import Slider from "../Slider";
@@ -106,9 +109,9 @@ export const PATHS = [
     component: ListenOnScreen,
   },
   {
-    name: "binary search",
-    path: "/binary-search",
-    component: BinarySearch,
+    name: "binary sort",
+    path: "/binary-sort",
+    component: BinarySort,
   },
   {
     name: "chart rechart",
@@ -120,4 +123,19 @@ export const PATHS = [
     path: "/preview-image",
     component: PreviewImage,
   },
+  {
+    name: "quickSort",
+    path: "/quick-sort",
+    component: QuickSort,
+  },
+  {
+    name: "Memo and No memo",
+    path: "/react-memo-and-trick",
+    component: MemoAndTrick,
+  },
+  // {
+  //   name: "react form hook",
+  //   path: "/react-hook-form",
+  //   component: FormReact,
+  // },
 ];
