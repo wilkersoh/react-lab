@@ -6,8 +6,7 @@ import Container from "./components/Container";
 
 const useStyles = makeStyles({
   preview: {
-    width: "600px",
-    height: "200px",
+    height: "350px",
     display: ({ preview }) => (preview ? "block" : "none"),
   },
   input: {
@@ -31,7 +30,7 @@ export default function PreviewImage() {
     if (image) {
       const reader = new FileReader();
 
-      // onloadend is callback after image fully load when readAsDataURL is finished
+      // onloadend is a callback after image fully load when readAsDataURL is finished
       reader.onloadend = () => {
         setPreview(reader.result); // base64 format image
       };
@@ -66,7 +65,7 @@ export default function PreviewImage() {
           className={classes.input}
         />
         <div className={classes.preview}>
-          <img src={preview} alt='preview' />
+          <img src={preview} height='100%' alt='preview' />
         </div>
       </form>
     </Container>
