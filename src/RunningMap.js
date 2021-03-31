@@ -25,6 +25,11 @@ const sleep = async (ms) => {
   return new Promise((resolve) => setTimeout(resolve, ms));
 };
 
+const rollDice = (min, max) => {
+  // roll between those number
+  return min + Math.floor(Math.random() * (max - min + 1));
+};
+
 export default function RunningMap() {
   const classes = useStyles();
   const [selected, setSelected] = React.useState([]);
@@ -33,6 +38,7 @@ export default function RunningMap() {
   const diceNum = () => {
     if (selected.length >= boxNum) return;
 
+    // let number = Math.floor(Math.random() * boxNum);
     let number = Math.floor(Math.random() * boxNum);
 
     while (selected.includes(number) && selected.length < boxNum) {
@@ -69,7 +75,7 @@ export default function RunningMap() {
     setBoxNum(number);
     setSelected([]);
   };
-  console.log("boxNum :>> ", boxNum);
+
   return (
     <Container display='flex' flexDirection='column'>
       <Box display='flex' flexWrap='wrap'>
