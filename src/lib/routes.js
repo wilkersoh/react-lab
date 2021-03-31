@@ -18,6 +18,7 @@ import ProtectedRoute from "../ProtectedRoute";
 import QuickSort from "../QuickSort";
 import ReducerBenefit from "../ReducerBenefit";
 import ReducerContext from "../ReducerContext";
+import RunningMap from "../RunningMap";
 import Slider from "../Slider";
 import TableView from "../TableView";
 import TransitionNumberSelected from "../TransitionNumberSelected";
@@ -132,6 +133,11 @@ export const PATHS = [
     name: "Memo and No memo",
     path: "/react-memo-and-trick",
     component: MemoAndTrick,
+  },
+  {
+    name: "Running map",
+    path: "/recursion-running",
+    component: RunningMap,
   },
   // {
   //   name: "react form hook",
