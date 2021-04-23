@@ -13,6 +13,7 @@ import MemoAndTrick from "../MemoAndTrick";
 import MouseMoveZoom from "../MouseMoveZoom";
 import NestedRouteInSamePage from "../NestedRouteInSamePage";
 import NestedRouteOtherPage from "../NestedRouteOtherPage";
+import PaginateReducer from "../PaginateReducer";
 import PreviewImage from "../PreviewImage";
 import ProtectedRoute from "../ProtectedRoute";
 import QuickSort from "../QuickSort";
@@ -138,6 +139,11 @@ export const PATHS = [
     name: "Running map",
     path: "/recursion-running",
     component: RunningMap,
+  },
+  {
+    name: "Paginaton with useReducer",
+    path: "/pagination-reducer",
+    component: PaginateReducer,
   },
   // {
   //   name: "react form hook",

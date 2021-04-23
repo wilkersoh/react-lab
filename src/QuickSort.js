@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "./components/Container";
 
-const swap = (arr, a, b) => {
-  let temp = arr[a];
-  arr[a] = arr[b];
-  arr[b] = temp;
-};
 const useStyles = makeStyles({
   container: {
     display: "flex",
@@ -30,17 +25,24 @@ const useStyles = makeStyles({
   },
 });
 
+const swap = async (arr, a, b) => {
+  await sleep(1000);
+  let temp = arr[a];
+  arr[a] = arr[b];
+  arr[b] = temp;
+};
+
+async function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 export default function QuickSort() {
   const initialValue = [9, 3, 4, 6, 5]; //  must set inside the function, cannot set it outside.
   const [arrNumber, setArrNumber] = useState(initialValue);
 
-  useEffect(() => {
-    console.log("hit realod");
-  }, [arrNumber]);
-
   const classes = useStyles({ height: arrNumber });
 
-  const partition = (arr, startIndex, endIndex) => {
+  const partition = async (arr, startIndex, endIndex) => {
     let pivotIndex = startIndex;
     let pivotValue = arr[endIndex];
     for (let i = startIndex; i < endIndex; i++) {
@@ -59,12 +61,12 @@ export default function QuickSort() {
        * final > [3, 4, 5, 6, 9];
        */
       if (arr[i] < pivotValue) {
-        swap(arr, i, pivotIndex);
+        await swap(arr, i, pivotIndex);
         pivotIndex++;
       }
     }
 
-    swap(arr, pivotIndex, endIndex);
+    await swap(arr, pivotIndex, endIndex);
 
     return pivotIndex;
   };
@@ -85,7 +87,7 @@ export default function QuickSort() {
       return;
     }
 
-    let index = partition(arr, startIndex, endIndex);
+    let index = await partition(arr, startIndex, endIndex);
 
     await Promise.all([
       quickSort(arr, startIndex, index - 1),
