@@ -144,4 +144,3 @@ ICE (Interactive Connectivity Establishment)
 1. ICE collects all available candidates (有 Local IP, reflexive address, STUN ones and relayed addresses - TURN ones) then send to remote peer via SDP
 
 ICE
-SDP
